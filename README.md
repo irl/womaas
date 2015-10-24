@@ -31,6 +31,23 @@ By default, the application will listen on [localhost port 5000][1].
 
 [1]: http://localhost:5000/
 
+## Uploading Objects
+
+Objects can be uploaded via either the web interface or from the command line.
+To upload from the web interface simply use the form on the home page of the
+application. You will be redirected to the object metadata page after a
+successful upload or shown a cryptic error message in the event of a failure.
+
+To upload from the command line, you will need to use an HTTP client such as
+`wget` or `curl`. For `curl`:
+
+    curl -F "upload=@/path/to/file" http://localhost:5000/s
+
+For `wget` you are on your own.
+
+After a successful upload from the command line, you will be returned the
+object's identifier in the store as the body of an HTTP response.
+
 ## Regular Maintenance
 
 You may wish to regularly reset your WOM storage to allow for more data to be
