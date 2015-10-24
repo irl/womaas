@@ -55,3 +55,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# WOMaaS Object Storage
+objects.db
+objects/

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Object {{obj[0]}} &middot; {% endblock %}
+{% block pagetitle %}Object <tt>{{obj[0]}}</tt>{% endblock %}
+{% block content %}
+<br>
+<table class="pure-table pure-table-striped pure-table-bordered" style="width: 100%;">
+	<tr>
+		<th>Object Name</th>
+		<td><a href="/o/{{obj[0]}}"><tt>{{ obj[0] }}</tt></a></td>
+	</tr>
+	<tr>
+		<th>Size</th>
+		<td>{{obj[1]}} bytes</td>
+	</tr>
+	<tr>
+		<th>MD5SUM</th>
+		<td><tt>{{obj[2]}}</tt></td>
+	</tr>
+	<tr>
+		<th>SHA1SUM</th>
+		<td><tt>{{obj[3]}}</tt></td>
+	</tr>
+	<tr>
+		<th>SHA256SUM</th>
+		<td><tt>{{obj[4]}}</tt></td>
+	</tr>
+	<tr>
+		<th>SHA512SUM</th>
+		<td style="font-size: xx-small;"><tt>{{obj[5]}}</tt></td>
+	</tr>
+	<tr>
+		<th>CRC32</th>
+		<td><tt>{{obj[6]}}</tt></td>
+	</tr>
+	<tr>
+		<th>Committed</th>
+		<td>{{obj[7]}}</td>
+	</tr>
+	<tr>
+		<th>Source</th>
+		<td>{{obj[8]}}</td>
+	</tr>
+	<tr>
+		<th>Blob URL</th>
+		<td><a href="http://localhost:5000/b/{{obj[0]}}">http://localhost:5000/b/{{obj[0]}}</a></td>
+</table>
+{% endblock %}
