@@ -4,10 +4,12 @@ Write-Only Memory as a Service
 
 ## Introduction
 
-In 1972, Signetics introduced the 25120 Fully Encoded, 9046xN, Random Access
-Write-Only-Memory IC. This IC had many applications, including don't care
+In 1972, Signetics introduced the [25120 Fully Encoded, 9046xN, Random Access
+Write-Only-Memory IC][1]. This IC had many applications, including don't care
 buffer stores, non-intelligent microcontrollers and first-in-never-out (FINO)
 asynchronous buffers.
+
+[1]: https://github.com/irl/womaas/raw/master/doc/signetics-25120.pdf
 
 With WOMaaS, these capabilities can now be made available as a cloud service,
 removing the need to have equipment for WOM stores on site and allowing
@@ -27,9 +29,9 @@ and management and maintenance costs.
     make db
     python main.py
 
-By default, the application will listen on [localhost port 5000][1].
+By default, the application will listen on [localhost port 5000][2].
 
-[1]: http://localhost:5000/
+[2]: http://localhost:5000/
 
 ## Uploading Objects
 
