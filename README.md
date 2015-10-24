@@ -14,11 +14,29 @@ removing the need to have equipment for WOM stores on site and allowing
 multiple users to share the same stores, thus reducing both hardware investment
 and management and maintenance costs.
 
+## Requirements
+
+ * Python 2.7+
+ * Python-Flask
+ * Python-zlib
+
 ## Getting Started
 
     git clone https://github.com/irl/womaas.git
+    cd womaas
     make db
     python main.py
 
-By default, the application will listen at http://localhost:5000/.
+By default, the application will listen on [localhost port 5000][1].
+
+[1]: http://localhost:5000/
+
+## Regular Maintenance
+
+You may wish to regularly reset your WOM storage to allow for more data to be
+written. No tools are provided for removing individual objects from the
+storage, but it is possible to destroy an entire store and create a new one:
+
+    make clean
+    make db
 
