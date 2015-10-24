@@ -9,14 +9,14 @@ Write-Only-Memory IC][1]. This IC had many applications, including don't care
 buffer stores, non-intelligent microcontrollers and first-in-never-out (FINO)
 asynchronous buffers.
 
-[1]: https://github.com/irl/womaas/raw/master/doc/signetics-25120.pdf
+[1]: https://github.com/irl/womaas/raw/master/docs/signetics-25120.pdf
 
 With WOMaaS, these capabilities can now be made available as a cloud service,
 removing the need to have equipment for WOM stores on site and allowing
 multiple users to share the same stores, thus reducing both hardware investment
 and management and maintenance costs.
 
-![WOMaaS Home Page](https://github.com/irl/womaas/raw/master/doc/home.png)
+![WOMaaS Home Page](https://github.com/irl/womaas/raw/master/docs/home.png)
 
 ## Requirements
 
