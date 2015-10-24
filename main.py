@@ -104,7 +104,7 @@ def store():
     get_db().commit()
     if 'html' in request.form.keys():
         return redirect(url_for("obj", objname=iden))
-    return url_for("obj", objname=iden)
+    return iden
 
 @app.route('/o')
 def objs():
