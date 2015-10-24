@@ -16,6 +16,8 @@ removing the need to have equipment for WOM stores on site and allowing
 multiple users to share the same stores, thus reducing both hardware investment
 and management and maintenance costs.
 
+![WOMaaS Home Page](https://github.com/irl/womaas/raw/master/doc/home.png)
+
 ## Requirements
 
  * Python 2.7+
