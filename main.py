@@ -5,11 +5,17 @@ from flask import g
 from flask import render_template
 from flask import redirect
 from flask import request
+from flask import Response
 from flask import url_for
 from zlib import crc32
 import sqlite3
 import hashlib
 import time
+from rdflib import Graph
+from rdflib import BNode
+from rdflib import Namespace
+from rdflib import Literal
+from rdflib import URIRef
 
 DATABASE = 'objects.db'
 
@@ -69,6 +75,7 @@ def crc(f):
         buffer = f.read(8192)
         if not buffer: break
         current = crc32(buffer, current)
+    f.seek(0)
     return current 
 
 def size(f):
@@ -120,9 +127,29 @@ def obj(objname):
     obj = c.fetchone()
     return render_template('object.html', obj=obj)
 
+@app.route('/r/<objname>')
+def robj(objname):
+    SCHEMA = Namespace('http://schema.org/')
+    SPDX = Namespace('http://www.spdx.org/rdf/terms#')
+    c = get_db().cursor()
+    c.execute('SELECT * FROM objects WHERE id=?', (objname,))
+    obj = c.fetchone()
+    g = Graph()
+    objuri = URIRef("http://localhost:5000/b/" + obj[0])
+    robjuri = URIRef("http://localhost:5000/r/" + obj[0])
+    md5node = BNode()
+    g.add((md5node, SPDX.checksumValue, Literal(obj[2])))
+    g.add((md5node, SPDX.algorithm, URIRef("http://packages.qa.debian.org/#checksumAlgorithm_md5sum")))
+    g.add((objuri, SPDX.checksum, md5node))
+    return Response(g.serialize(), mimetype="text/plain")
+
 @app.route('/b/<objname>')
 def blob(objname):
     return redirect(url_for("obj", objname=objname))
+
+@app.route('/h')
+def help():
+    return redirect('http://womaas.readthedocs.org/en/latest/')
 
 if __name__ == '__main__':
     app.run(debug=True)
